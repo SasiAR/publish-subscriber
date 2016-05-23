@@ -59,53 +59,25 @@ public abstract class AbstractMessageListener<T> implements MessageListener {
 	@Transactional(rollbackFor=Exception.class,propagation=Propagation.REQUIRED)
 	public void onMessage(Message message) {
 		try {
-//			StopWatch watch = new StopWatch();
-//			watch.start();
-			
 			BytesMessage byteMsg = ((BytesMessage) message);
 			byte [] content=null;
 			int length = (int)byteMsg.getBodyLength();	
 			content = new byte [length];
 			byteMsg.readBytes(content);
 			
-//			watch.split();
-//			LOG.info("done creating " + watch.getSplitNanoTime());
-//			watch.reset();
-//			watch.start();
-						
 			T msg = getMsg(content);
 
-//			watch.split();
-//			LOG.info("done converting " + watch.getSplitNanoTime());
-//			watch.reset();
-//			watch.start();
-			
 			if (isFilterAvailable && filter.filter(msg)) {
 				LOG.info("message filtered");
 				return;
 			}
 			
-//			watch.split();
-//			LOG.info("done filtering " + watch.getSplitNanoTime());
-//			watch.reset();
-//			watch.start();
-			
 			if(isTransformerAvailable) {
 				msg = transformer.transform(msg);
 			}
 			
-//			watch.split();
-//			LOG.info("done transforming " + watch.getSplitNanoTime());
-//			watch.reset();
-//			watch.start();			
-			
 			router.route(msg, subscribers);
-			
-//			watch.split();
-//			LOG.info("done routing " + watch.getSplitNanoTime());
-//			watch.reset();
-//			watch.start();
-			
+
 		} catch (Exception e) {
 			LOG.error(ExceptionUtils.getStackTrace(e));
 			sendToErrorQueue(message);
