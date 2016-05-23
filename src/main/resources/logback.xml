@@ -1,0 +1,27 @@
+<configuration>
+
+	<statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener" />
+
+	<appender name="SIFT" class="ch.qos.logback.classic.sift.SiftingAppender">
+		<discriminator >
+			<key>parentqueue</key>
+			<defaultValue>main</defaultValue>
+		</discriminator>
+		<sift>
+			<appender name="FILE-${parentqueue}" class="ch.qos.logback.core.FileAppender">
+				<file>/var/tmp/qpubsub/logs/${parentqueue}.log</file>
+				<append>true</append>
+				<layout class="ch.qos.logback.classic.PatternLayout">
+					<pattern>%d{HH:mm:ss:SSS} | %-5level | %logger{20} | %msg%n%rEx</pattern>
+				</layout>
+			</appender>
+		</sift>
+	</appender>
+	
+	<logger name="org.springframework" level="INFO" />
+	
+	<root level="INFO">
+		<appender-ref ref="SIFT"/>
+	</root>
+
+</configuration>

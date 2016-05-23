@@ -1,0 +1,7 @@
+{
+	"configFiles":[
+		"src/test/java/integration/sample-configs/publishToAllRoutingWithSubscriberSelection.json",
+		"src/test/java/integration/sample-configs/roundRobinRouting.json",
+		"src/test/java/integration/sample-configs/xpathRouting.json"
+   ]
+}

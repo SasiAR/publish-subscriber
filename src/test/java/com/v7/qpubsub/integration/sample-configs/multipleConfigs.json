@@ -1,0 +1,117 @@
+{
+	"qPubSubConfigs":[
+		{
+			"qPubSubConfigName":"parent1",
+			"publisherConfig":{
+				"queueName":"PARENT.IN.QUEUE",
+				"queueManager":"TEST",
+				"errorQueue":"PARENT.IN.ERROR",
+				"routingStrategy":"ROUNDROBIN",
+				"filterType":"XPATH",
+				"filterXPath":"/root/child/child/text()='TEST'",
+				"subscribers":[
+					{
+						"queueName":"CHILD.OUT.QUEUE1",
+						"subscriberType":"ALL",
+						"priorities":[
+							{
+								"value":"5",
+								"xpath":"/root/child/child/@type='VAL1'"
+							}
+							
+						]
+						
+					},
+					{
+						"queueName":"CHILD.OUT.QUEUE2",
+						"subscriberType":"ALL"
+						
+					},
+					{
+						"queueName":"CHILD.OUT.QUEUE3",
+						"subscriberType":"ALL"
+						
+					}
+					
+				]
+				
+			}
+			
+		},
+		{
+			"qPubSubConfigName":"parent2",
+			"publisherConfig":{
+				"queueName":"PARENT.IN.QUEUE2",
+				"queueManager":"TEST",
+				"errorQueue":"PARENT.IN.ERROR2",
+				"routingStrategy":"XPATH",
+				"routingXPath":"/root/child/child1/text()",
+				"filterType":"XPATH",
+				"filterXPath":"/root/child/child1/text()='TEST'",
+				"subscribers":[
+					{
+						"queueName":"CHILD.OUT.QUEUE4",
+						"subscriberType":"ALL",
+						"priorities":[
+							{
+								"value":"5",
+								"xpath":"/root/child/child1/@type='VAL1'"
+							}
+							
+						]
+						
+					},
+					{
+						"queueName":"CHILD.OUT.QUEUE5",
+						"subscriberType":"ALL"
+					},
+					{
+						"queueName":"CHILD.OUT.QUEUE6",
+						"subscriberType":"ALL"						
+					}
+					
+				]
+				
+			}
+			
+		},
+		{
+			"qPubSubConfigName":"parent3",
+			"publisherConfig":{
+				"queueName":"PARENT.IN.QUEUE3",
+				"queueManager":"TEST",
+				"errorQueue":"PARENT.IN.ERROR3",
+				"filterType":"XPATH",
+				"filterXPath":"/root/child/child1/text()='TEST'",
+				"subscribers":[
+					{
+						"queueName":"CHILD.OUT.QUEUE7",
+						"subscriberType":"XPATH",
+						"subscribeXPath":"/root/child/child1='VALUE1'",
+						"priorities":[
+							{
+								"value":"9",
+								"xpath":"/root/child/child1/@type='VAL1'"
+							}
+							
+						]
+						
+					},
+					{
+						"queueName":"CHILD.OUT.QUEUE8",
+						"subscriberType":"XPATH",
+						"subscribeXPath":"/root/child/child1='VALU21'"					
+					},
+					{
+						"queueName":"CHILD.OUT.QUEUE9",
+						"subscriberType":"XPATH",
+						"subscribeXPath":"/root/child/child1='VALUE3'"					
+					}
+				]
+				
+			}
+			
+		}				
+		
+	]
+}

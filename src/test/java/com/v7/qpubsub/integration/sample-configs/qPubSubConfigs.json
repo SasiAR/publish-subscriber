@@ -1,0 +1,5 @@
+{
+	"configFiles":[
+		"src/test/java/integration/sample-configs/multipleConfigs.json"
+   ]
+}

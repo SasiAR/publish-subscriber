@@ -1,0 +1,41 @@
+{
+	"qPubSubConfigs":[
+		{
+			"qPubSubConfigName":"parent1",
+			"publisherConfig":{
+				"queueName":"PARENT.IN.QUEUE",
+				"queueManager":"TEST",
+				"errorQueue":"PARENT.IN.ERROR",
+				"messateType": "XML",
+				"routingStrategy":"ROUNDROBIN",
+				"subscribers":[
+					{
+						"queueName":"CHILD.OUT.QUEUE1",
+						"subscriberType":"ALL",
+						"priorities":[
+							{
+								"value":"5",
+								"xpath":"/root/child/child/@type='VAL1'"
+							}
+							
+						]
+						
+					},
+					{
+						"queueName":"CHILD.OUT.QUEUE2",
+						"subscriberType":"ALL"
+						
+					},
+					{
+						"queueName":"CHILD.OUT.QUEUE3",
+						"subscriberType":"ALL"
+						
+					}
+					
+				]
+				
+			}
+			
+		}
+	]
+}

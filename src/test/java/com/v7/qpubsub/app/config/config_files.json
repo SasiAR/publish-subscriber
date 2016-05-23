@@ -1,0 +1,6 @@
+{
+	"configFiles":[
+		"src/test/java/com/v7/qpubsub/app/config/sample.json",
+		"src/test/java/com/v7/qpubsub/app/config/sample2.json"
+	]
+}

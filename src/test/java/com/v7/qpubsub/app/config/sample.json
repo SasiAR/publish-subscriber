@@ -1,0 +1,87 @@
+{
+	"qPubSubConfigs":[
+		{
+			"qPubSubConfigName":"sample",
+			"publisherConfig":{
+				"queueName":"SOMETHING.SOME.IN",
+				"queueManager":"TEST",
+				"errorQueue": "ERROR.QUEUE",
+				"routingStrategy":"ROUNDROBIN",
+				"filterType":"XPATH",
+				"filterXPath":"/root/child/child=='TEST'",
+				"subscribers":[
+					{
+						"queueName":"SOMETHING.SOME.SUBSCRIBER1",
+						"subscriberType":"XPATH",
+						"subscribeXPath":"/root/child/child=='TEST'",
+						"priorities":[
+							{
+								"value":"5",
+								"xpath":"/root/child/child/child=='VAL1'"
+							}
+							
+						]
+						
+					},
+					{
+						"queueName":"SOMETHING.SOME.SUBSCRIBER2",
+						"subscriberType":"XPATH",
+						"subscribeXPath":"/root/child/child=='TEST'"
+						
+					},
+					{
+						"queueName":"SOMETHING.SOME.SUBSCRIBER3",
+						"subscriberType":"XPATH",
+						"subscribeXPath":"/root/child/child=='TEST'"
+						
+					}
+					
+				]
+				
+			}
+			
+		},
+		{
+			"qPubSubConfigName":"sample2",
+			"publisherConfig":{
+				"queueName":"SOMETHING.SOME.IN",
+				"queueManager":"TEST",
+				"errorQueue": "ERROR.QUEUE",				
+				"routingStrategy":"ROUNDROBIN",
+				"filterType":"XPATH",
+				"filterXPath":"/root/child/child=='TEST'",
+				"subscribers":[
+					{
+						"queueName":"SOMETHING.SOME.SUBSCRIBER1",
+						"subscriberType":"XPATH",
+						"subscribeXPath":"/root/child/child=='TEST'",
+						"priorities":[
+							{
+								"value":"5",
+								"xpath":"/root/child/child/child=='VAL1'"
+							}
+							
+						]
+						
+					},
+					{
+						"queueName":"SOMETHING.SOME.SUBSCRIBER2",
+						"subscriberType":"XPATH",
+						"subscribeXPath":"/root/child/child=='TEST'"
+						
+					},
+					{
+						"queueName":"SOMETHING.SOME.SUBSCRIBER3",
+						"subscriberType":"XPATH",
+						"subscribeXPath":"/root/child/child=='TEST'"
+						
+					}
+					
+				]
+				
+			}
+			
+		}
+		
+	]
+}
